@@ -75,6 +75,8 @@ if __name__ == '__main__':
     data2 = fileOpeningFloat("data/expectedOutput.csv")
     expectedOutputs = data2[0:100]
 
+    print(learningData)
+
     # Data normalization of inputs
     maxValues = learningData.max(axis=0)
     minValues = learningData.min(axis=0)
@@ -95,11 +97,11 @@ if __name__ == '__main__':
     inputLayer = layers.InputLayer(np.array([learningData[0]]))
     hiddenLayer = layers.HiddenLayer(3, inputLayer)
     hiddenLayer2 = layers.HiddenLayer(3, hiddenLayer)
-    outputLayer = layers.OutputLayer(2, hiddenLayer2)
+    outputLayer = layers.OutputLayer(3, hiddenLayer2)
 
     neuralnetwork = neuralNetwork.NeuralNetwork(inputLayer, outputLayer)
     # Network training
-    neuralnetwork.train(learningData, expectedOutputs, 10000, 0.01)
+    neuralnetwork.train(learningData, expectedOutputs, 100, 0.01)
 
     # neuralnetwork.predict(learningData)
     neuralnetwork.predictNormalization(learningData, outputmaxValues, outputminValues)
