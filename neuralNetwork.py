@@ -69,8 +69,8 @@ class NeuralNetwork:
             self.inputLayer.values = np.array([data[line]]).T
 
             self.forwardPropagate(self.outputLayer)
-            # plt.imshow(data[line].reshape(28, 28), cmap="Greys")
-            # plt.show()
+            plt.imshow(data[line].reshape(28, 28), cmap="Greys")
+            plt.show()
             print(self.outputLayer.values)
 
     def predictNormalization(self, data, max, min):
