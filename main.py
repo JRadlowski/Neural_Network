@@ -70,9 +70,9 @@ if __name__ == '__main__':
 
     # ------------- POWER CONSUMPTION -------------------
     # Import data
-    data = fileOpeningFloat("data/prad/learningData.csv")
+    data = fileOpeningFloat("data/learningData.csv")
     learningData = data[0:100]
-    data2 = fileOpeningFloat("data/prad/expectedOutput.csv")
+    data2 = fileOpeningFloat("data/expectedOutput.csv")
     expectedOutputs = data2[0:100]
 
     # Data normalization of inputs
@@ -98,6 +98,7 @@ if __name__ == '__main__':
     outputLayer = layers.OutputLayer(2, hiddenLayer2)
 
     neuralnetwork = neuralNetwork.NeuralNetwork(inputLayer, outputLayer)
+    # Network training
     neuralnetwork.train(learningData, expectedOutputs, 10000, 0.01)
 
     # neuralnetwork.predict(learningData)
